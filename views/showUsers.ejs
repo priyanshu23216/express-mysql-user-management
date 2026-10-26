@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get All Users</title>
+    <link rel = "stylesheet" href = "/css/style.css">
+</head>
+<body>
+    <h1>Current Registered Users are : <%= count %></h1>
+    <br>
+    <h2>List of All Registered Users are as follows</h2>
+
+    <table border ="5">
+        <tr>
+            <th>User ID</th>
+            <th>UserName</th>
+            <th>Email</th>
+            <th>Date of Birth</th>
+            <th>Joined</th>
+            <th>Edit User</th>
+            <th>Delete User</th>
+        </tr>
+
+        <% for( let key of result) { %>
+
+            <tr>
+                <td><%= key.ID %></td>
+                <td><%= key.USERNAME %></td>
+                <td><%= key.EMAIL %></td>
+                <td><%= key.BIRTH_DATE %></td>
+                <td><%= key.REGISTERED_DATE %></td>
+
+                <td><form action = "<%= key.ID %>/data/edit" method = "GET">
+                    <button>Edit</button>
+                </form>
+            </td>
+
+            <td>
+                <form action = "<%= key.ID %>/data/delete?_method=DELETE" method = "POST">
+                <button>Delete User</button>
+               </form>
+            </td>
+
+            </tr>
+            <% } %>
+
+    </table>
+
+    <form method = "GET" action = "/register/data">
+        <button>New? Register youself today</button>
+    </form>
+    <footer>
+        <p>© 2026 All Rights Reserved | By Priyanshu Singh</p>
+    </footer>
+
+
+</body>
+</html>

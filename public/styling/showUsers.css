@@ -1,0 +1,322 @@
+/* ========================================
+   1. GLOBAL RESET & BASE STYLES
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #4f46e5;
+    --primary-dark: #3730a3;
+    --background: #f4f6ff;
+    --text-primary: #172033;
+    --text-secondary: #64748b;
+    --border: #e2e8f0;
+    --white: #ffffff;
+}
+
+body {
+    min-height: 100vh;
+    padding: 45px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(circle at top left, #e0e7ff 0, transparent 35%),
+        radial-gradient(circle at top right, #f3e8ff 0, transparent 30%),
+        var(--background);
+
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   2. MAIN HEADING
+======================================== */
+
+h1 {
+    width: 100%;
+    max-width: 1250px;
+    margin-bottom: 12px;
+
+    font-size: clamp(27px, 3.5vw, 38px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.25;
+
+    color: #312e81;
+}
+
+h1::first-letter {
+    color: #4f46e5;
+}
+
+
+/* ========================================
+   3. SUBHEADING
+======================================== */
+
+h2 {
+    width: 100%;
+    max-width: 1250px;
+    margin-bottom: 28px;
+
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+
+/* ========================================
+   4. TABLE CONTAINER
+======================================== */
+
+table {
+    width: 100%;
+    max-width: 1250px;
+
+    border: none;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 35px rgba(30, 41, 59, 0.08),
+        0 2px 8px rgba(79, 70, 229, 0.04);
+
+    text-align: left;
+}
+
+
+/* ========================================
+   5. COLORFUL TABLE HEADERS
+======================================== */
+
+th {
+    padding: 19px 22px;
+
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    white-space: nowrap;
+
+    border: none;
+    background: #4f46e5;
+}
+
+/* Different vibrant colors for each column */
+
+th:nth-child(1) {
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+}
+
+th:nth-child(2) {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+th:nth-child(3) {
+    background: linear-gradient(135deg, #0891b2, #0e7490);
+}
+
+th:nth-child(4) {
+    background: linear-gradient(135deg, #d97706, #b45309);
+}
+
+th:nth-child(5) {
+    background: linear-gradient(135deg, #059669, #047857);
+}
+
+
+/* ========================================
+   6. TABLE DATA
+======================================== */
+
+td {
+    padding: 19px 22px;
+
+    font-size: 14px;
+    font-weight: 500;
+    color: #475569;
+
+    border: none;
+    border-bottom: 1px solid #edf0f7;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+
+    overflow-wrap: anywhere;
+}
+
+/* Alternating row backgrounds */
+
+tbody tr:nth-child(even) {
+    background-color: #f8faff;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Row hover */
+
+tbody tr:hover {
+    background-color: #eef2ff;
+}
+
+tbody tr:hover td {
+    border-bottom-color: #dbeafe;
+}
+
+/* Different text colors for each column */
+
+td:nth-child(1) {
+    color: #6d28d9;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+td:nth-child(2) {
+    color: #1d4ed8;
+    font-weight: 700;
+}
+
+td:nth-child(3) {
+    color: #0e7490;
+    font-weight: 500;
+}
+
+td:nth-child(4) {
+    color: #b45309;
+    font-weight: 600;
+}
+
+td:nth-child(5) {
+    color: #047857;
+    font-weight: 600;
+}
+
+/* Remove the last row's bottom border */
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ========================================
+   7. COPYRIGHT FOOTER
+======================================== */
+
+footer {
+    width: 100%;
+    max-width: 1250px;
+    margin-top: 35px;
+    padding: 22px 15px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid #e0e7ff;
+    border-radius: 14px;
+
+    box-shadow: 0 5px 20px rgba(30, 41, 59, 0.04);
+}
+
+footer p {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #64748b;
+}
+
+footer p::first-letter {
+    color: #4f46e5;
+}
+
+
+/* ========================================
+   8. SMOOTH INTERACTIONS
+======================================== */
+
+table {
+    animation: fadeIn 0.5s ease both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================================
+   9. RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 900px) {
+    body {
+        padding: 35px 24px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th,
+    td {
+        padding: 16px 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 28px 14px;
+    }
+
+    h1 {
+        font-size: 27px;
+        letter-spacing: -0.5px;
+    }
+
+    h2 {
+        font-size: 14px;
+        margin-bottom: 22px;
+    }
+
+    th {
+        font-size: 11px;
+    }
+
+    td {
+        font-size: 13px;
+    }
+
+    footer {
+        margin-top: 25px;
+        padding: 18px 12px;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+}
+

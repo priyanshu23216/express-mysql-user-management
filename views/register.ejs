@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Yourself</title>
+    <link rel = "stylesheet" href = "/css/register.css">
+</head>
+<body>
+    <h1> Enter Your Data to get yourself registered </h1>
+
+    
+    <form method = "POST" action = '/add/data'>
+        <label for = "ID">User ID : </label>
+        <input type = "text" id = "ID" name = "ID" placeholder = "Enter new User ID" required>
+        <% if( typeof error != 'undefined' && error){ %>
+        <p class = "error-message"><%= error %></p>
+        <% } %> 
+
+        <label for = "UserName">UserName : </label>
+        <input type = "text" id = "UserName" name = "UserName" placeholder = "Enter your UserName" required>
+
+        <label for = "Email">Email : </label>
+        <input type = "email" id = "Email" name = "Email" placeholder = "Enter your Email" required>
+
+        <label for = "password">Password : </label>
+        <input type = "password" id = "password" name = "password" placeholder = "Enter your Password" required>
+
+        <label for = "Date of Birth">Date of Birth</label>
+        <input type = "date" id = "Date of Birth" name = "DoB" placeholder = "Enter your Birth Date">
+
+        <label for = "Today Date">Enter Today's Date : </label>
+        <input type = "datetime-local" id = "Today Date" name = "todayDate" placeholder = "Select Calendar">
+
+        <button type = "submit">Submit</button>
+
+    </form>
+
+    <div id="successPopup" class="popup-overlay">
+    <div class="popup-card">
+        <h2>🎉 Thank You!</h2>
+        <p>Your data has been submitted successfully.</p>
+        <button type = "button"  onclick="closePopup()">Continue</button>
+    </div>
+</div>
+
+<script>
+    function showPopup() {
+        document.getElementById("successPopup").classList.add("active");
+    }
+
+    function closePopup() {
+        document.getElementById("successPopup").classList.remove("active");
+    }
+
+</script>
+
+    
+ <% if(typeof success != 'undefined' && success){ %>
+     <script>
+    window.addEventListener("DOMContentLoaded", showPopup);
+    </script>
+     <% } %>
+
+</body>
+</html>
